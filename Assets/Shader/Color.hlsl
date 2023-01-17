@@ -1,5 +1,4 @@
-// Color.hlsl
-
+ // Color.hlsl
 
 struct VertexInput
 {
@@ -89,5 +88,5 @@ PixelInput VS(VertexInput input)
 // SV_Target : 현재 세팅된 메인 렌더 타겟을 사용하라
 float4 PS(PixelInput input) : SV_Target
 {
-	return input.color * color;
+	return input.color;
 }

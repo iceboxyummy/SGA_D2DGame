@@ -9,12 +9,16 @@ public:
 	void Update();
 	void Render();
 
+	const std::shared_ptr<class Actor>CreateActor(const bool& is_active = true);
+
+	void AddActor(const std::shared_ptr<class Actor>& actor);
+
 private:
-	 D3D11_Pipeline* pipeline = nullptr;
+	std::shared_ptr<D3D11_Pipeline> pipeline;
 
-	 std::vector<std::shared_ptr<class Actor>> actors;
+	std::vector<std::shared_ptr<class Actor>> actors;
 
-	 // Constant Buffer : VS, PS에서 사용될 상수를 모아놓은 버퍼
+	// Constant Buffer : VS, PS에서 사용될 상수를 모아놓은 버퍼
 
 	 /*
 		4x4 항등 행렬
@@ -86,7 +90,6 @@ private:
 		z
 
 	 */
-
 };
 
 /*
@@ -181,7 +184,6 @@ private:
 		ㅁ 정규화한 공간을 우리가 정한 크기만큼 늘린 공간
 */
 
-
 /*
 	동차 좌표란 무엇인가?
 	VECTOR3로 된 (1, 0, 0) 해당 값을 볼 때 이 값이
@@ -206,10 +208,7 @@ private:
 	그러면 서로 다른 4차원에서 추가된 값인 w를 맞춰준다면 두 차원은 3차원상에
 	같은 위치에 존재한다고 본다.
 
-
 	VECTOR3 1 , 1 , 0 
-
-
 */
 
 /*

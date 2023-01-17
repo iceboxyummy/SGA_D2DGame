@@ -1,5 +1,7 @@
 #pragma once
+
 #include "Rect.h"
+
 class Monster final : public Rect
 {
 public:
@@ -16,4 +18,3 @@ private:
 	Stopwatch stopwatch;
 	Direction direction = Direction::R;
 };
-

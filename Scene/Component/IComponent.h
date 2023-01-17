@@ -1,11 +1,13 @@
 #pragma once
 
-
 enum class ComponentType : uint
 {
 	Unknown,
 	Camera,
-	Transform
+	Transform,
+	MeshRenderer,
+	MoveScript,
+	AiScript
 };
 
 class IComponent
@@ -44,5 +46,3 @@ protected:
 
 	ComponentType component_type = ComponentType::Unknown;
 };
-
-

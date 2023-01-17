@@ -55,7 +55,6 @@ const D3DXVECTOR3 TransformComponent::GetScale()
     D3DXQUATERNION temp1;
     D3DXVECTOR3 temp2;
 
-    // °úÁ¦ : ¿ÀÀÏ·¯°¢, Áü¹ú¶ô, ÄõÅÍ´Ï¾ð Á¤¸®
     D3DXMatrixDecompose(&world_scale, &temp1, &temp2, &world);
 
     return world_scale;
@@ -96,7 +95,6 @@ const D3DXVECTOR3 TransformComponent::GetPosition()
     D3DXQUATERNION temp1;
     D3DXVECTOR3 temp2;
 
-    // °úÁ¦ : ¿ÀÀÏ·¯°¢, Áü¹ú¶ô, ÄõÅÍ´Ï¾ð Á¤¸®
     D3DXMatrixDecompose(&temp2, &temp1, &world_position, &world);
 
     return world_position;
@@ -118,7 +116,6 @@ void TransformComponent::SetPosition(const D3DXVECTOR3& world_position)
     }
     else
         SetLocalPosition(world_position);
-
 }
 
 const D3DXVECTOR3 TransformComponent::GetRotation()
@@ -146,7 +143,8 @@ void TransformComponent::SetRotation(const D3DXVECTOR3& world_rotation)
     if (HasParent() == true)
     {
         D3DXMATRIX inverse;
-        D3DXMatrixInverse(&inverse, nullptr, &GetWorldRotationMatrix());
+        auto temp = GetWorldRotationMatrix();
+        D3DXMatrixInverse(&inverse, nullptr, &temp);
 
         D3DXVECTOR3 rotation;
         D3DXVec3TransformNormal(&rotation, &world_rotation, &inverse);
@@ -183,7 +181,7 @@ const D3DXVECTOR3 TransformComponent::GetRight() const
 const D3DXVECTOR3 TransformComponent::GetUp() const
 {
     D3DXVECTOR3 up;
-    D3DXVECTOR3 vec(1, 1, 0);
+    D3DXVECTOR3 vec(0, 1, 0);
 
     D3DXVec3TransformNormal(&up, &vec, &world);
 
@@ -213,8 +211,7 @@ void TransformComponent::UpdateTransform()
     D3DXMatrixTranslation(&T, local_position.x, local_position.y, local_position.z);
 
     local = S * R * T;
-
-    
+ 
     if (HasParent() == true)
         world = local * parent.lock()->GetWorldMatrix();
     else

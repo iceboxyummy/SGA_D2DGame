@@ -1,7 +1,6 @@
 #pragma once
 #include "IComponent.h"
 
-
 struct CAMERA_DATA
 {
 	D3DXMATRIX view;

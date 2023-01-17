@@ -98,7 +98,6 @@ void Graphics::Initialize()
 			D3D_FEATURE_LEVEL_10_1,
 			D3D_FEATURE_LEVEL_10_0,
 		};
-
 		
 		// HRESULT : 함수 결과의 성공여부를 담는 자료형
 		// S_OK(성공), S_FALSE(실패)를 가진다
@@ -145,8 +144,6 @@ void Graphics::CreateBackBuffer(const uint& width, const uint& height)
 			- MS에서 사용하는 여러 항목을 구분하기 위한 식별자
 			- 16바이트의 크기를 가진다.
 			- UUID라고도 있는데 큰 차이는 없다.
-
-		과제 : GUID, UUID 조사
 	*/
 	ID3D11Texture2D* back_buffer = nullptr;
 
@@ -199,7 +196,6 @@ void Graphics::Begin()
 	device_context->RSSetViewports(1, &d3d11_viewport); // 그릴 영역 선택
 	device_context->ClearRenderTargetView(render_target_view, clear_color); // 렌더 타겟 초기화
 }
-
 
 void Graphics::End()
 {

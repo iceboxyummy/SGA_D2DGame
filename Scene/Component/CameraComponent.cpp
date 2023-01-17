@@ -21,8 +21,6 @@ void CameraComponent::Destroy()
 {
 }
 
-
-
 void CameraComponent::UpdateViewMatrix()
 {
 	D3DXVECTOR3 position = transform->GetPosition();

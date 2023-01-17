@@ -7,14 +7,11 @@ public:
 	Actor();
 	~Actor();
 
-
 	void Initialize();
 	void Update();
 	void Destroy();
 
 	void Render(class D3D11_Pipeline* const pipeline);
-
-
 
 	//=============================
 	// [Property]
@@ -31,7 +28,6 @@ public:
 	//=============================
 	// [Component]
 	//=============================
-
 	template<typename T>
 	const std::shared_ptr<T> AddComponent();
 
@@ -69,7 +65,7 @@ inline const std::shared_ptr<T> Actor::AddComponent()
 
 	ComponentType type = IComponent::DeduceComponentType<T>();
 
-	if (GetComponent(type) == true)
+	if (HasComponent(type) == true)
 		return GetComponent<T>();
 
 	components.emplace_back
@@ -80,10 +76,11 @@ inline const std::shared_ptr<T> Actor::AddComponent()
 			transform.get()
 		)
 	);
-	components.back().SetComponentType(type);
-	components.back().Initialize();
 
 	std::shared_ptr<T> new_component = std::static_pointer_cast<T>(components.back());
+
+	new_component->Initialize();
+	new_component->SetComponentType(type);
 
 	if constexpr (std::is_same<T, class TransformComponent>::value == true)
 		transform = new_component;
@@ -102,7 +99,6 @@ inline T* Actor::GetComponent_Raw()
 		if (component->GetComponentType() == type)
 			return std::static_pointer_cast<T>(component).get();
 	}
-
 	return nullptr;
 }
 
@@ -117,7 +113,6 @@ inline const std::shared_ptr<T> Actor::GetComponent()
 		if (component->GetComponentType() == type)
 			return std::static_pointer_cast<T>(component);
 	}
-
 	return nullptr;
 }
 
@@ -164,5 +159,4 @@ inline void Actor::RemoveComponent()
 		else
 			iter++;
 	}
-
 }

@@ -31,9 +31,11 @@
     <ClInclude Include="Timer\Timer.h" />
     <ClInclude Include="Intersect\Intersect.h" />
     <ClInclude Include="Scene\Actor.h" />
-    <ClInclude Include="Scene\Component\IComponent.h" />
     <ClInclude Include="Scene\Component\TransformComponent.h" />
     <ClInclude Include="Scene\Component\MeshRendererComponent.h" />
+    <ClInclude Include="Scene\Component\MoveScriptComponent.h" />
+    <ClInclude Include="Scene\Component\IComponent.h" />
+    <ClInclude Include="Scene\Component\AiScriptComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -65,5 +67,7 @@
     <ClCompile Include="Scene\Component\IComponent.cpp" />
     <ClCompile Include="Scene\Component\TransformComponent.cpp" />
     <ClCompile Include="Scene\Component\MeshRendererComponent.cpp" />
+    <ClCompile Include="Scene\Component\MoveScriptComponent.cpp" />
+    <ClCompile Include="Scene\Component\AiScriptComponent.cpp" />
   </ItemGroup>
 </Project>
