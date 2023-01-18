@@ -7,7 +7,8 @@ enum class ComponentType : uint
 	Transform,
 	MeshRenderer,
 	MoveScript,
-	AiScript
+	AiScript,
+	TargetTrace
 };
 
 class IComponent
@@ -30,7 +31,7 @@ public:
 	class Actor* GetActor() const { return actor; }
 	void SetActor(class Actor* const actor) { this->actor = actor; }
 
-	class TransformComponent* GetTransfomr() const { return transform; }
+	class TransformComponent* GetTransform() const { return transform; }
 	void SetTransform(class TransformComponent* const transform) { this->transform = transform; }
 
 	ComponentType GetComponentType() const { return component_type; }

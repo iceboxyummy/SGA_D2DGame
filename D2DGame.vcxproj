@@ -156,6 +156,7 @@
     <ClInclude Include="Scene\Rendering\Monster.h" />
     <ClInclude Include="Scene\Rendering\Player.h" />
     <ClInclude Include="Scene\Rendering\Rect.h" />
+    <ClInclude Include="Scene\Component\TargetTraceComponent.h" />
     <ClInclude Include="Timer\Timer.h" />
     <ClInclude Include="Scene\Component\TransformComponent.h" />
     <ClInclude Include="Utility\GUID_Generator.h" />
@@ -192,6 +193,7 @@
     <ClCompile Include="Scene\Rendering\Monster.cpp" />
     <ClCompile Include="Scene\Rendering\Player.cpp" />
     <ClCompile Include="Scene\Rendering\Rect.cpp" />
+    <ClCompile Include="Scene\Component\TargetTraceComponent.cpp" />
     <ClCompile Include="Timer\Timer.cpp" />
     <ClCompile Include="Scene\Component\TransformComponent.cpp" />
     <ClCompile Include="Utility\GUID_Generator.cpp" />

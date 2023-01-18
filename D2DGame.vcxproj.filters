@@ -36,6 +36,7 @@
     <ClInclude Include="Scene\Component\MoveScriptComponent.h" />
     <ClInclude Include="Scene\Component\IComponent.h" />
     <ClInclude Include="Scene\Component\AiScriptComponent.h" />
+    <ClInclude Include="Scene\Component\TargetTraceComponent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -69,5 +70,6 @@
     <ClCompile Include="Scene\Component\MeshRendererComponent.cpp" />
     <ClCompile Include="Scene\Component\MoveScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\AiScriptComponent.cpp" />
+    <ClCompile Include="Scene\Component\TargetTraceComponent.cpp" />
   </ItemGroup>
 </Project>

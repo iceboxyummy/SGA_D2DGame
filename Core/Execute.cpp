@@ -7,6 +7,7 @@
 #include "Scene/Component/MeshRendererComponent.h"
 #include "Scene/Component/MoveScriptComponent.h"
 #include "Scene/Component/AiScriptComponent.h"
+#include "Scene/Component/TargetTraceComponent.h"
 
 Execute::Execute()
 {
@@ -38,7 +39,11 @@ Execute::Execute()
 
 	std::shared_ptr<Actor> monster = CreateActor();
 	monster->AddComponent<MeshRendererComponent>();
-	monster->AddComponent<AiScriptComponent>();
+	// monster->AddComponent<AiScriptComponent>();
+
+	monster->AddComponent<TargetTraceComponent>();
+	auto target_trace = monster->AddComponent<TargetTraceComponent>();
+	target_trace->SetTarget(player);
 
 	monster->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(100.0f, 100.0f, 1.0f));
 	monster->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(-100.0f, 100.0f, 1.0f));
