@@ -1,10 +1,10 @@
 #pragma once
 
-class Execute final
+class Scene final
 {
 public:
-	Execute();
-	~Execute();
+	Scene();
+	~Scene();
 
 	void Update();
 	void Render();

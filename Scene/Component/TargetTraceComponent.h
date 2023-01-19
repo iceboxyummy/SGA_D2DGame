@@ -4,6 +4,13 @@
 
 class TargetTraceComponent : public IComponent
 {
+private:
+	enum State
+	{
+		Trace,
+		Avoid
+	};
+
 public:
 	using IComponent::IComponent;
 	~TargetTraceComponent() = default;
@@ -18,4 +25,5 @@ private:
 	std::weak_ptr<const class Actor> target;
 	Stopwatch Timer;
 	float speed = 50.0f;
+	State current_state = State::Trace;
 };

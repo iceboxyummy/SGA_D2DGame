@@ -1,10 +1,6 @@
 #include "stdafx.h"
 #include "Graphics.h"
 
-Graphics::Graphics()
-{
-}
-
 Graphics::~Graphics()
 {
 	SAFE_RELEASE(render_target_view);
@@ -13,7 +9,7 @@ Graphics::~Graphics()
 	SAFE_RELEASE(swap_chain);
 }
 
-void Graphics::Initialize()
+bool Graphics::Initialize()
 {
 	// 디바이스, 디바이스 컨텍스트, 스왑체인 생성
 	{
@@ -75,9 +71,6 @@ void Graphics::Initialize()
 				ㅁ Multi Sampling AA(MSAA)
 					ㄴ 많은 연산량과 메모리를 요구하는 SSAA를 개량해서 만든 방법
 					ㄴ 폴리곤의 가장자리만 AA를 진행한다.
-
-			// 과제 : 안티 앨리어싱 조사하기
-			// 과제 : BPC조사
 		*/
 		desc.SampleDesc.Count = 1; // 샘플의 개수, 배수
 		desc.SampleDesc.Quality = 0; // 샘플링의 퀄리티 수준, 0은 안쓰겠다는 의미
@@ -118,6 +111,12 @@ void Graphics::Initialize()
 		);
 		assert(SUCCEEDED(hr)); // SUCCEEDED() : 성공시 true, false를 반환해주는 매크로
 	}
+	return true;
+}
+
+void Graphics::Update()
+{
+	return false;
 }
 
 void Graphics::CreateBackBuffer(const uint& width, const uint& height)

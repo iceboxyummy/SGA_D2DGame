@@ -15,6 +15,7 @@
 #include<iostream>
 #include<vector>
 #include<sstream>
+#include<map>
 #include<unordered_map>
 #include<random>
 #include<chrono>
@@ -32,7 +33,6 @@
 #pragma comment(lib, "d3dx11.lib")
 #pragma comment(lib, "d3dx10.lib")
 #pragma comment(lib, "d3dcompiler.lib")
-
 
 using uint = unsigned int;
 

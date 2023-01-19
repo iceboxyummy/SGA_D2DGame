@@ -1,7 +1,7 @@
 // Program.cpp
 #include"stdafx.h"
 #include"Core/Window.h"
-#include"Core/Execute.h"
+#include"Core/Engine.h"
 
 int APIENTRY WinMain
 (
@@ -21,17 +21,15 @@ int APIENTRY WinMain
 	Settings::Get().SetWidth(static_cast<float>(Window::GetWidth()));
 	Settings::Get().SetHeight(static_cast<float>(Window::GetHeight()));
 
-	Execute* execute = new Execute();
+	std::unique_ptr<Engine> engine = std::make_unique<Engine>();
 
 	// 업데이트
 	while (Window::Update())
 	{
-		execute->Update();
-		execute->Render();
+		engine->Update();
+		engine->Render();
 	}
 
 	// 해제
-	SAFE_DELETE(execute);
-
 	Window::Destroy();
 }

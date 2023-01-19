@@ -91,7 +91,4 @@ private:
 	std::vector<std::weak_ptr<TransformComponent>> childs;
 
 	std::shared_ptr<class D3D11_ConstantBuffer> gpu_buffer;
-
-
 };
-

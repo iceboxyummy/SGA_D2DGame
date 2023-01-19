@@ -1,6 +1,6 @@
 #include "stdafx.h"
-#include "Execute.h"
-#include "Graphics.h"
+#include "Scene.h"
+#include "Core/Graphics.h"
 #include "Scene/Actor.h"
 #include "Scene/Component/CameraComponent.h"
 #include "Scene/Component/TransformComponent.h"
@@ -9,7 +9,7 @@
 #include "Scene/Component/AiScriptComponent.h"
 #include "Scene/Component/TargetTraceComponent.h"
 
-Execute::Execute()
+Scene::Scene()
 {
 	Graphics::Get().Initialize();
 	Graphics::Get().CreateBackBuffer
@@ -54,17 +54,17 @@ Execute::Execute()
 	pipeline = std::make_shared<D3D11_Pipeline>(&Graphics::Get());
 }
 
-Execute::~Execute()
+Scene::~Scene()
 {
 }
 
-void Execute::Update()
+void Scene::Update()
 {
 	for (const auto& actor : actors)
 		actor->Update();
 }
 
-void Execute::Render()
+void Scene::Render()
 {
 	Graphics::Get().Begin();
 	{
@@ -81,7 +81,7 @@ void Execute::Render()
 	Graphics::Get().End();
 }
 
-const std::shared_ptr<class Actor> Execute::CreateActor(const bool& is_active)
+const std::shared_ptr<class Actor> Scene::CreateActor(const bool& is_active)
 {
 	std::shared_ptr<class Actor>actor = std::make_shared<Actor>();
 	actor->SetActive(is_active);
@@ -90,7 +90,7 @@ const std::shared_ptr<class Actor> Execute::CreateActor(const bool& is_active)
 	return actor;
 }
 
-void Execute::AddActor(const std::shared_ptr<class Actor>& actor)
+void Scene::AddActor(const std::shared_ptr<class Actor>& actor)
 {
 	actors.emplace_back(actor);
 }

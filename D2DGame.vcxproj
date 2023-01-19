@@ -144,6 +144,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Core\Context.h" />
+    <ClInclude Include="Core\SubSystem\SceneManager.h" />
+    <ClInclude Include="Core\Engine.h" />
+    <ClInclude Include="Core\SubSystem\ISubSystem.h" />
     <ClInclude Include="Scene\Component\AiScriptComponent.h" />
     <ClInclude Include="Scene\Component\IComponent.h" />
     <ClInclude Include="Scene\Component\MoveScriptComponent.h" />
@@ -172,8 +176,8 @@
     <ClInclude Include="Core\D3D11\InputAssembler\D3D11_InputLayout.h" />
     <ClInclude Include="Core\D3D11\InputAssembler\D3D11_IndexBuffer.h" />
     <ClInclude Include="Core\D3D11\InputAssembler\D3D11_VertexBuffer.h" />
-    <ClInclude Include="Core\Execute.h" />
-    <ClInclude Include="Core\Graphics.h" />
+    <ClInclude Include="Scene\Scene.h" />
+    <ClInclude Include="Core\SubSystem\Graphics.h" />
     <ClInclude Include="Core\Settings.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Core\D3D11\Vertex\D3D11_Vertex.h" />
@@ -182,6 +186,8 @@
     <ClInclude Include="Core\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Core\SubSystem\SceneManager.cpp" />
+    <ClCompile Include="Core\Engine.cpp" />
     <ClCompile Include="Scene\Component\AiScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\MoveScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\MeshRendererComponent.cpp" />
@@ -209,8 +215,8 @@
     <ClCompile Include="Core\D3D11\InputAssembler\D3D11_InputLayout.cpp" />
     <ClCompile Include="Core\D3D11\InputAssembler\D3D11_IndexBuffer.cpp" />
     <ClCompile Include="Core\D3D11\InputAssembler\D3D11_VertexBuffer.cpp" />
-    <ClCompile Include="Core\Execute.cpp" />
-    <ClCompile Include="Core\Graphics.cpp" />
+    <ClCompile Include="Scene\Scene.cpp" />
+    <ClCompile Include="Core\SubSystem\Graphics.cpp" />
     <ClCompile Include="Program.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

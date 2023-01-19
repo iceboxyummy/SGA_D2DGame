@@ -31,14 +31,25 @@ void TargetTraceComponent::Update()
 	// -> 빗변 = √(밑변^2 + 높이^2)
 	float distance = sqrt(vector.x * vector.x + vector.y * vector.y);
 
+	if(distance >= 300) current_state = State::Trace;
+	if (distance <= 50) current_state = State::Avoid;
+
 	// 단위 벡터로 만들어 순수한 방향값으로 바꾼다.
 	D3DXVECTOR3 direction;
 	D3DXVec3Normalize(&direction, &vector);
 
-
-	// 다음 위치 갱신
+	//다음 위치 갱신
 	D3DXVECTOR3 move_position;
-	move_position = my_position + direction * speed * Timer.GetElapsedTimeSec();
+
+	switch (current_state)
+	{
+	case TargetTraceComponent::Trace:
+		move_position = my_position + direction * speed * Timer.GetElapsedTimeSec();
+		break;
+
+	case TargetTraceComponent::Avoid:
+		move_position = my_position - direction * speed * Timer.GetElapsedTimeSec();
+	}
 
 	Timer.Start();
 
