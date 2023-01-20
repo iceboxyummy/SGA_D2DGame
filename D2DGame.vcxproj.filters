@@ -40,7 +40,9 @@
     <ClInclude Include="Core\SubSystem\SceneManager.h" />
     <ClInclude Include="Core\Engine.h" />
     <ClInclude Include="Core\Context.h" />
-    <ClInclude Include="Core\SubSystem\ISubSystem.h" />
+    <ClInclude Include="Core\SubSystem\ISubsystem.h" />
+    <ClInclude Include="Core\SubSystem\Renderer\Renderer.h" />
+    <ClInclude Include="Core\SubSystem\Renderer\Renderer_ConstantBuffers.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -77,5 +79,7 @@
     <ClCompile Include="Scene\Component\TargetTraceComponent.cpp" />
     <ClCompile Include="Core\SubSystem\SceneManager.cpp" />
     <ClCompile Include="Core\Engine.cpp" />
+    <ClCompile Include="Core\SubSystem\Renderer\Renderer.cpp" />
+    <ClCompile Include="Core\SubSystem\Renderer\Render_Passes.cpp" />
   </ItemGroup>
 </Project>

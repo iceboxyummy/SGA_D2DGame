@@ -3,7 +3,8 @@
 #include"Component/TransformComponent.h"
 #include"Component/MeshRendererComponent.h"
 
-Actor::Actor()
+Actor::Actor(class Context* const context)
+    :context(context)
 {
     AddComponent<TransformComponent>();
 }
@@ -31,42 +32,6 @@ void Actor::Destroy()
 {
     for (const auto& component : components)
         component->Destroy();
-}
-
-void Actor::Render(D3D11_Pipeline* const pipeline)
-{
-    if (is_active == false) return;
-
-    auto mesh_renderer = GetComponent<MeshRendererComponent>();
-
-    if (mesh_renderer == nullptr) return;
-
-    D3D11_PipelineState pipeline_state;
-
-    pipeline_state.input_layout = mesh_renderer->GetInputLayout().get();
-    pipeline_state.primitive_topology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
-    pipeline_state.vertex_shader = mesh_renderer->GetVertexShader().get();
-    pipeline_state.pixel_shader = mesh_renderer->GetPixelShader().get();
-
-    if (pipeline->Begin(pipeline_state))
-    {
-        pipeline->SetVertexBuffer(mesh_renderer->GetVertexBuffer().get());
-        pipeline->SetIndexBuffer(mesh_renderer->GetIndexBuffer().get());
-
-        transform->UpdateConstantBuffer();
-        pipeline->SetConstantBuffer(1, ShaderScope_VS, transform->GetConstantBuffer().get());
-
-
-        pipeline->DrawIndexed
-        (
-            mesh_renderer->GetIndexBuffer()->GetCount(),
-            mesh_renderer->GetIndexBuffer()->GetOffset(),
-            mesh_renderer->GetVertexBuffer()->GetOffset()
-        );
-
-        pipeline->End();
-    }
-
 }
 
 bool Actor::HasComponent(const ComponentType& type)

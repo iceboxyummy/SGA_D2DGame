@@ -1,23 +1,28 @@
 #include "stdafx.h"
 #include "Engine.h"
-#include "SceneManager.h"
 
 Engine::Engine()
 {
-	scene_manager = std::make_shared<SceneManager>();
-	scene_manager->Initialize();
+	context = new Context();
+	context->RegisterSubsystem<Graphics>();
+	context->RegisterSubsystem<SceneManager>();
+
+	context->RegisterSubsystem<Renderer>();
+
+	context->InitializeSubSystems();
 }
 
 Engine::~Engine()
 {
+	SAFE_DELETE(context)
 }
 
 void Engine::Update()
 {
-	scene_manager->Update();
+	context->UpdateSubsystems();
 }
 
 void Engine::Render()
 {
-	scene_manager->Render();
+	
 }

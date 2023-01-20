@@ -3,18 +3,22 @@
 class Scene final
 {
 public:
-	Scene();
+	Scene(class Context* const context);
 	~Scene();
 
 	void Update();
-	void Render();
 
 	const std::shared_ptr<class Actor>CreateActor(const bool& is_active = true);
 
 	void AddActor(const std::shared_ptr<class Actor>& actor);
 
+	const std::vector<std::shared_ptr<class Actor>>& GetActors() const { return actors; }
+
 private:
-	std::shared_ptr<D3D11_Pipeline> pipeline;
+	class Context* context = nullptr;
+	class Renderer* renderer = nullptr;
+
+	bool is_update = true;
 
 	std::vector<std::shared_ptr<class Actor>> actors;
 

@@ -145,9 +145,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Core\Context.h" />
+    <ClInclude Include="Core\SubSystem\Renderer\Renderer_ConstantBuffers.h" />
     <ClInclude Include="Core\SubSystem\SceneManager.h" />
     <ClInclude Include="Core\Engine.h" />
-    <ClInclude Include="Core\SubSystem\ISubSystem.h" />
+    <ClInclude Include="Core\SubSystem\ISubsystem.h" />
+    <ClInclude Include="Core\SubSystem\Renderer\Renderer.h" />
     <ClInclude Include="Scene\Component\AiScriptComponent.h" />
     <ClInclude Include="Scene\Component\IComponent.h" />
     <ClInclude Include="Scene\Component\MoveScriptComponent.h" />
@@ -186,8 +188,10 @@
     <ClInclude Include="Core\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Core\SubSystem\Renderer\Render_Passes.cpp" />
     <ClCompile Include="Core\SubSystem\SceneManager.cpp" />
     <ClCompile Include="Core\Engine.cpp" />
+    <ClCompile Include="Core\SubSystem\Renderer\Renderer.cpp" />
     <ClCompile Include="Scene\Component\AiScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\MoveScriptComponent.cpp" />
     <ClCompile Include="Scene\Component\MeshRendererComponent.cpp" />

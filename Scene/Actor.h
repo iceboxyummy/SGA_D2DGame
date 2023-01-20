@@ -4,14 +4,12 @@
 class Actor final
 {
 public:
-	Actor();
+	Actor(class Context* const context);
 	~Actor();
 
 	void Initialize();
 	void Update();
 	void Destroy();
-
-	void Render(class D3D11_Pipeline* const pipeline);
 
 	//=============================
 	// [Property]
@@ -51,6 +49,7 @@ public:
 	void RemoveComponent();
 
 private:
+	class Context* context = nullptr;
 	std::string name;
 	std::vector<std::shared_ptr<IComponent>> components;
 	bool is_active = true;
@@ -72,6 +71,7 @@ inline const std::shared_ptr<T> Actor::AddComponent()
 	(
 		std::make_shared<T>
 		(
+			context,
 			this,
 			transform.get()
 		)

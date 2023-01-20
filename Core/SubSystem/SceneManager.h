@@ -10,7 +10,6 @@ public:
 
 	virtual bool Initialize() override;
 	virtual void Update() override;
-	virtual void Render() override;
 
 	const std::map<std::string, std::shared_ptr<class Scene>>& GetAllScenes() const { return scenes; }
 

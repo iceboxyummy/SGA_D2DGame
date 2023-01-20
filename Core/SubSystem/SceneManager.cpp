@@ -16,12 +16,6 @@ void SceneManager::Update()
         current_scene.lock()->Update();
 }
 
-void SceneManager::Render()
-{
-    if (current_scene.expired() != true)
-        current_scene.lock()->Render();
-}
-
 Scene* const SceneManager::GetCurrentScene()
 {
     return current_scene.expired() ? nullptr : current_scene.lock().get();
@@ -44,7 +38,7 @@ Scene* const SceneManager::RegisterScene(const std::string& scene_name)
         assert(false);
         return nullptr;
     }
-    std::shared_ptr<Scene> new_scene = std::make_shared<Scene>();
+    std::shared_ptr<Scene> new_scene = std::make_shared<Scene>(context);
 
     scenes[scene_name] = new_scene;
 

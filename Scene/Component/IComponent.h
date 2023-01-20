@@ -19,6 +19,7 @@ public:
 
 public:
 	IComponent(
+		class Context* const context,
 		class Actor* const actor,
 		class TransformComponent* const transform
 	);
@@ -41,6 +42,8 @@ public:
 	void SetEnabled(const bool& is_enabled) { this->is_enabled = is_enabled; }
 
 protected:
+	class Context* context = nullptr;
+
 	class Actor* actor = nullptr;
 	class TransformComponent* transform = nullptr;
 	bool is_enabled = true;

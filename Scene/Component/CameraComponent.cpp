@@ -39,7 +39,7 @@ void CameraComponent::UpdateConstantBuffer()
 {
 	if (gpu_buffer == nullptr)
 	{
-		gpu_buffer = std::make_shared<D3D11_ConstantBuffer>(&Graphics::Get());
+		gpu_buffer = std::make_shared<D3D11_ConstantBuffer>(context->GetSubsystem<Graphics>());
 		gpu_buffer->Create<CAMERA_DATA>();
 	}
 

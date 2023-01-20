@@ -12,9 +12,6 @@ public:
 
 	~Context()
 	{
-		auto iter = subsystems.rbegin();
-		auto iter = subsystems.rend();
-
 		for (auto iter = subsystems.rbegin(); iter != subsystems.rend(); iter++)
 			SAFE_DELETE(*iter);
 	}
@@ -34,25 +31,31 @@ public:
 	template<typename T>
 	const T* const RegisterSubsystem()
 	{
+		static_assert(std::is_base_of<ISubsystem, T>::value == true, "Rrocided type does not implement ISubsystem");
 
+		subsystems.emplace_back(new T(this));
+
+		return static_cast<T*>(subsystems.back());
 	}
 
 	template<typename T>
 	T* const GetSubsystem()
 	{
+		static_assert(std::is_base_of<ISubsystem, T>::value == true, "Rrocided type does not implement ISubsystem");
 
+		for (const auto& subsystem : subsystems)
+		{
+			if (typeid(T) == typeid(subsystems))
+				return static_cast<T*>(subsystem);
+		}
+		return nullptr;
 	}
 
 	void UpdateSubsystems()
 	{
-
+		for (const auto& subsystem : subsystems)
+			subsystem->Update();
 	}
-
-	void RenderSubsystems()
-	{
-
-	}
-
 private:
 	std::vector<ISubsystem*> subsystems;
 };

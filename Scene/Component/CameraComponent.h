@@ -1,12 +1,6 @@
 #pragma once
 #include "IComponent.h"
 
-struct CAMERA_DATA
-{
-	D3DXMATRIX view;
-	D3DXMATRIX projection;
-};
-
 class CameraComponent final : public IComponent
 {
 public:
@@ -34,4 +28,3 @@ private:
 
 	std::shared_ptr<class D3D11_ConstantBuffer> gpu_buffer;
 };
-

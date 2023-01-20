@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Scene.h"
-#include "Core/Graphics.h"
 #include "Scene/Actor.h"
 #include "Scene/Component/CameraComponent.h"
 #include "Scene/Component/TransformComponent.h"
@@ -9,14 +8,10 @@
 #include "Scene/Component/AiScriptComponent.h"
 #include "Scene/Component/TargetTraceComponent.h"
 
-Scene::Scene()
+Scene::Scene(Context* const context)
+	:context(context)
 {
-	Graphics::Get().Initialize();
-	Graphics::Get().CreateBackBuffer
-	(
-		static_cast<uint>(Settings::Get().GetWidth()),
-		static_cast<uint>(Settings::Get().GetHeight())
-	);
+	renderer = context->GetSubsystem<Renderer>();
 
 	// ===============================================
 	// [Actor]
@@ -47,11 +42,6 @@ Scene::Scene()
 
 	monster->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(100.0f, 100.0f, 1.0f));
 	monster->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(-100.0f, 100.0f, 1.0f));
-
-	// ===============================================
-	// [Pipeline]
-	// ===============================================
-	pipeline = std::make_shared<D3D11_Pipeline>(&Graphics::Get());
 }
 
 Scene::~Scene()
@@ -62,28 +52,18 @@ void Scene::Update()
 {
 	for (const auto& actor : actors)
 		actor->Update();
-}
 
-void Scene::Render()
-{
-	Graphics::Get().Begin();
+	if (is_update == true) 
 	{
-		for (const auto& actor : actors)
-		{
-			if(auto camera = actor->GetComponent<CameraComponent>())
-			{
-				camera->UpdateConstantBuffer();
-				pipeline->SetConstantBuffer(0, ShaderScope_VS, camera->GetConstantBuffer().get());
-			}
-			actor->Render(pipeline.get());
-		}
+		renderer->UpdateRenderables(this);
+		is_update = false;
 	}
-	Graphics::Get().End();
 }
 
 const std::shared_ptr<class Actor> Scene::CreateActor(const bool& is_active)
 {
-	std::shared_ptr<class Actor>actor = std::make_shared<Actor>();
+	is_update = true;
+	std::shared_ptr<class Actor>actor = std::make_shared<Actor>(context);
 	actor->SetActive(is_active);
 	AddActor(actor);
 

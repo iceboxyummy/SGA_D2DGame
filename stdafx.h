@@ -21,6 +21,7 @@
 #include<chrono>
 #include<functional>
 #include<memory>
+#include<typeinfo>
 
 //DX
 #include<d3dcompiler.h>
@@ -57,7 +58,14 @@ using uint = unsigned int;
 //Framework
 #include"Core/Settings.h"
 #include"Core/Object.h"
-#include"Core/Graphics.h"
+
+// Main System
+#include"Core/Context.h"
+
+// Subsystem
+#include"Core/SubSystem/Graphics.h"
+#include"Core/SubSystem/SceneManager.h"
+#include"Core/SubSystem/Renderer/Renderer.h"
 
 #include"Core/D3D11/Vertex/D3D11_Vertex.h"
 #include"Core/D3D11/Vertex/D3D11_Geometry.h"

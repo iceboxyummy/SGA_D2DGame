@@ -7,8 +7,9 @@
 #include "AiScriptComponent.h"
 #include"TargetTraceComponent.h"
 
-IComponent::IComponent(Actor* const actor, TransformComponent* const transform)
-	: actor(actor)
+IComponent::IComponent(class Context* const context, Actor* const actor, TransformComponent* const transform)
+	: context(context)
+	, actor(actor)
 	, transform(transform)
 {
 }

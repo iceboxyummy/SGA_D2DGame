@@ -116,7 +116,7 @@ bool Graphics::Initialize()
 
 void Graphics::Update()
 {
-	return false;
+	return;
 }
 
 void Graphics::CreateBackBuffer(const uint& width, const uint& height)

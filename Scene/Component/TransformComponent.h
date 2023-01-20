@@ -1,15 +1,11 @@
 #pragma once
 #include "IComponent.h"
 
-struct TRANSFORM_DATA
-{
-	D3DXMATRIX world;
-};
-
 class TransformComponent final : public IComponent
 {
 public:
 	TransformComponent(
+		class Context* const context,
 		class Actor* actor,
 		class TransformComponent* transform
 	);
@@ -73,7 +69,6 @@ public:
 
 	void AddChild(std::weak_ptr<TransformComponent> const child);
 
-	//TODO: 추후에 분리
 	std::shared_ptr<D3D11_ConstantBuffer> GetConstantBuffer() const { return gpu_buffer; }
 	void UpdateConstantBuffer();
 
