@@ -69,9 +69,6 @@ public:
 
 	void AddChild(std::weak_ptr<TransformComponent> const child);
 
-	std::shared_ptr<D3D11_ConstantBuffer> GetConstantBuffer() const { return gpu_buffer; }
-	void UpdateConstantBuffer();
-
 private:
 	// 자신의 크 자 이 값
 	D3DXVECTOR3 local_scale = D3DXVECTOR3(1, 1, 1);
@@ -84,6 +81,4 @@ private:
 
 	std::weak_ptr<TransformComponent> parent;
 	std::vector<std::weak_ptr<TransformComponent>> childs;
-
-	std::shared_ptr<class D3D11_ConstantBuffer> gpu_buffer;
 };

@@ -48,9 +48,6 @@ using uint = unsigned int;
 //Timer
 #include"Timer/Timer.h"
 
-//Intersect
-#include"Intersect/Intersect.h"
-
 // Utility
 #include"Utility/Geometry_Generator.h"
 #include"Utility/GUID_Generator.h"

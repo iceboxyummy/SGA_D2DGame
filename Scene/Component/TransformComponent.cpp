@@ -249,18 +249,3 @@ void TransformComponent::AddChild(std::weak_ptr<TransformComponent> const child)
 
     childs.emplace_back(child);
 }
-
-void TransformComponent::UpdateConstantBuffer()
-{
-    if (gpu_buffer == nullptr)
-    {
-        gpu_buffer = std::make_shared<D3D11_ConstantBuffer>(context->GetSubsystem<Graphics>());
-        gpu_buffer->Create<TRANSFORM_DATA>();
-    }
-
-    TRANSFORM_DATA* gpu_data = gpu_buffer->Map<TRANSFORM_DATA>();
-
-    D3DXMatrixTranspose(&gpu_data->world, &world);
-
-    gpu_buffer->Unmap();
-}

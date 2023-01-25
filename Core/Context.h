@@ -45,7 +45,7 @@ public:
 
 		for (const auto& subsystem : subsystems)
 		{
-			if (typeid(T) == typeid(subsystems))
+			if (typeid(T) == typeid(*subsystem))
 				return static_cast<T*>(subsystem);
 		}
 		return nullptr;

@@ -14,10 +14,6 @@ public:
 	const D3DXMATRIX& GetViewMatrix() const { return view; }
 	const D3DXMATRIX& GetProjectionMatrix() const { return projection; }
 
-	//TODO:
-	std::shared_ptr<D3D11_ConstantBuffer> GetConstantBuffer() const { return gpu_buffer; }
-	void UpdateConstantBuffer();
-
 private:
 	void UpdateViewMatrix();
 	void UpdateProjectionMatrix();
@@ -25,6 +21,4 @@ private:
 private:
 	D3DXMATRIX view;
 	D3DXMATRIX projection;
-
-	std::shared_ptr<class D3D11_ConstantBuffer> gpu_buffer;
 };
