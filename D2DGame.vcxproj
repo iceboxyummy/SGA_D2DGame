@@ -144,6 +144,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Scene\Component\AnimatorComponent.h" />
+    <ClInclude Include="Resource\Animation.h" />
     <ClInclude Include="Core\Context.h" />
     <ClInclude Include="Core\SubSystem\Renderer\Renderer_ConstantBuffers.h" />
     <ClInclude Include="Core\SubSystem\Renderer\Renderer_Types.h" />
@@ -160,7 +162,7 @@
     <ClInclude Include="Core\Object.h" />
     <ClInclude Include="Math\Math.h" />
     <ClInclude Include="Scene\Component\TargetTraceComponent.h" />
-    <ClInclude Include="Timer\Timer.h" />
+    <ClInclude Include="Core\SubSystem\Timer.h" />
     <ClInclude Include="Scene\Component\TransformComponent.h" />
     <ClInclude Include="Utility\GUID_Generator.h" />
     <ClInclude Include="Utility\Geometry_Generator.h" />
@@ -185,6 +187,8 @@
     <ClInclude Include="Core\Window.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Scene\Component\AnimatorComponent.cpp" />
+    <ClCompile Include="Resource\Animation.cpp" />
     <ClCompile Include="Core\SubSystem\Renderer\Renderer_Resources.cpp" />
     <ClCompile Include="Core\SubSystem\Renderer\Render_Passes.cpp" />
     <ClCompile Include="Core\SubSystem\SceneManager.cpp" />
@@ -198,7 +202,7 @@
     <ClCompile Include="Core\D3D11\D3D11_Pipeline.cpp" />
     <ClCompile Include="Math\Math.cpp" />
     <ClCompile Include="Scene\Component\TargetTraceComponent.cpp" />
-    <ClCompile Include="Timer\Timer.cpp" />
+    <ClCompile Include="Core\SubSystem\Timer.cpp" />
     <ClCompile Include="Scene\Component\TransformComponent.cpp" />
     <ClCompile Include="Utility\GUID_Generator.cpp" />
     <ClCompile Include="Utility\Geometry_Generator.cpp" />

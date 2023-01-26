@@ -45,9 +45,6 @@ using uint = unsigned int;
 //Math
 #include"Math/Math.h"
 
-//Timer
-#include"Timer/Timer.h"
-
 // Utility
 #include"Utility/Geometry_Generator.h"
 #include"Utility/GUID_Generator.h"
@@ -63,6 +60,7 @@ using uint = unsigned int;
 #include"Core/SubSystem/Graphics.h"
 #include"Core/SubSystem/SceneManager.h"
 #include"Core/SubSystem/Renderer/Renderer.h"
+#include"Core/SubSystem/Timer.h"
 
 #include"Core/D3D11/Vertex/D3D11_Vertex.h"
 #include"Core/D3D11/Vertex/D3D11_Geometry.h"
@@ -82,3 +80,6 @@ using uint = unsigned int;
 #include"Core/D3D11/OutputMerger/D3D11_Blend_state.h"
 
 #include"Core/D3D11/D3D11_Pipeline.h"
+
+// Resource
+#include "Resource/Animation.h"
