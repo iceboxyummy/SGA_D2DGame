@@ -5,7 +5,8 @@
 #include "MeshRendererComponent.h"
 #include "MoveScriptComponent.h"
 #include "AiScriptComponent.h"
-#include"TargetTraceComponent.h"
+#include "TargetTraceComponent.h"
+#include "AnimatorComponent.h"
 
 IComponent::IComponent(class Context* const context, Actor* const actor, TransformComponent* const transform)
 	: context(context)
@@ -27,3 +28,4 @@ REGISTER_COMPONENT_TYPE(MeshRendererComponent, ComponentType::MeshRenderer)
 REGISTER_COMPONENT_TYPE(MoveScriptComponent, ComponentType::MoveScript)
 REGISTER_COMPONENT_TYPE(AiScriptComponent, ComponentType::AiScript)
 REGISTER_COMPONENT_TYPE(TargetTraceComponent, ComponentType::TargetTrace)
+REGISTER_COMPONENT_TYPE(AnimatorComponent, ComponentType::Animator)

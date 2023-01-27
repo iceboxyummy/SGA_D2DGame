@@ -7,6 +7,7 @@
 #include"Scene/Component/CameraComponent.h"
 #include"Scene/Component/MeshRendererComponent.h"
 #include"Scene/Component/TransformComponent.h"
+#include"Scene/Component/AnimatorComponent.h"
 
 void Renderer::PassMain()
 {
@@ -27,7 +28,7 @@ void Renderer::PassMain()
 		pipeline_state.primitive_topology = D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST;
 		pipeline_state.vertex_shader = renderable->GetVertexShader().get();
 		pipeline_state.pixel_shader = renderable->GetPixelShader().get();
-		pipeline_state.rasterizer_state = rasterizers[RasterizerStateType::Cull_Back_Fill_Wireframe].get();
+		pipeline_state.rasterizer_state = rasterizers[RasterizerStateType::Cull_Back_Fill_Solid].get();
 		pipeline_state.blend_state = blend_states[BlendStateType::Alpha].get();
 
 		if (pipeline->Begin(pipeline_state))
@@ -40,6 +41,23 @@ void Renderer::PassMain()
 
 			pipeline->SetConstantBuffer(0, ShaderScope_VS, gpu_camera_buffer.get());
 			pipeline->SetConstantBuffer(1, ShaderScope_VS, gpu_object_buffer.get());
+
+			if (auto animator = actor->GetComponent<AnimatorComponent>())
+			{
+				auto current_keyframe = animator->GetCurrentKeyframe();
+				cpu_animation_buffer.sprite_offset = current_keyframe->offset;
+				cpu_animation_buffer.sprite_size = current_keyframe->size;
+				cpu_animation_buffer.texture_size = animator->GetCurrentAnimation()->GetSpriteTextureSize();
+				UpdateAnimationBuffer();
+
+				pipeline->SetConstantBuffer(2, ShaderScope_VS, gpu_animation_buffer.get());
+				pipeline->SetShaderResource(0, ShaderScope_PS, animator->GetCurrentAnimation()->GetSpriteTexture().get());
+			}
+			/*else
+			{
+				pipeline->SetConstantBuffer(2, ShaderScope_VS, nullptr);
+				pipeline->SetShaderResource(0, ShaderScope_PS, nullptr);
+			}*/
 
 			pipeline->DrawIndexed
 			(

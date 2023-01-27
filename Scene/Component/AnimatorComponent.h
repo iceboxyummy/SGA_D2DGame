@@ -12,7 +12,12 @@ enum class AnimationMode : uint
 class AnimatorComponent : public IComponent
 {
 public:
-	using IComponent::IComponent;
+	AnimatorComponent(
+		class Context* const context,
+		class Actor* const actor,
+		class TransformComponent* const transform
+	);
+
 	~AnimatorComponent() = default;
 
 	virtual void Initialize() override;
@@ -40,6 +45,7 @@ public:
 	bool IsPlaying() const { return animation_mode == AnimationMode::Play; }
 
 private:
+	class Timer* timer = nullptr;
 	AnimationMode animation_mode = AnimationMode::Play;
 	uint current_frame_number = 0;
 	float frame_counter = 0.0f;

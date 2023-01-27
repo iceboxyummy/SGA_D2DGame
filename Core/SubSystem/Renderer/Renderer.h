@@ -23,6 +23,7 @@ private:
 
 	void UpdateCameraBuffer();
 	void UpdateObjectBuffer();
+	void UpdateAnimationBuffer();
 
 private:
 	void PassMain();
@@ -37,6 +38,9 @@ private:
 
 	TRANSFORM_DATA cpu_object_buffer;
 	std::shared_ptr<class D3D11_ConstantBuffer> gpu_object_buffer;
+
+	ANIMATION_DATA cpu_animation_buffer;
+	std::shared_ptr<class D3D11_ConstantBuffer> gpu_animation_buffer;
 
 private:
 	std::map<RasterizerStateType, std::shared_ptr<class D3D11_RasterizerState>> rasterizers;

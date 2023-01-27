@@ -4,8 +4,12 @@
 Engine::Engine()
 {
 	context = new Context();
+
+	context->RegisterSubsystem<Timer>();
+
 	context->RegisterSubsystem<Graphics>();
 	context->RegisterSubsystem<SceneManager>();
+
 	context->RegisterSubsystem<Renderer>();
 
 	context->InitializeSubSystems();

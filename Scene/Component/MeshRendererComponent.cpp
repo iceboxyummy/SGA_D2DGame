@@ -20,8 +20,8 @@ void MeshRendererComponent::SetStandardMesh()
 	//================================================================================================
 	// [Geometry]
 	//================================================================================================
-	D3D11_Geometry<D3D11_VertexColor>  geometry;
-	Geometry_Generator::CreateQuad(geometry, D3DXCOLOR(1.0f, 1.0f, 1.0f, 1.0f));
+	D3D11_Geometry<D3D11_VertexTexture>  geometry;
+	Geometry_Generator::CreateQuad(geometry);
 
 	//================================================================================================
 	// [Vertex Buffer]
@@ -42,17 +42,17 @@ void MeshRendererComponent::SetStandardMaterial()
 	// [Vertex Shader]
 	//================================================================================================
 	vertex_shader = std::make_shared<D3D11_Shader>(context->GetSubsystem<Graphics>());
-	vertex_shader->Create(ShaderScope_VS, "./Assets/Shader/Color.hlsl");
+	vertex_shader->Create(ShaderScope_VS, "./Assets/Shader/Animation.hlsl");
 
 	//================================================================================================
 	// [Pixel Shader]
 	//================================================================================================
 	pixel_shader = std::make_shared<D3D11_Shader>(context->GetSubsystem<Graphics>());
-	pixel_shader->Create(ShaderScope_PS, "./Assets/Shader/Color.hlsl");
+	pixel_shader->Create(ShaderScope_PS, "./Assets/Shader/Animation.hlsl");
 
 	//================================================================================================
 	// [InputLayout]
 	//================================================================================================
 	input_layout = std::make_shared<D3D11_InputLayout>(context->GetSubsystem<Graphics>());
-	input_layout->Create(D3D11_VertexColor::descs, D3D11_VertexColor::count, vertex_shader->GetShaderBlob());
+	input_layout->Create(D3D11_VertexTexture::descs, D3D11_VertexTexture::count, vertex_shader->GetShaderBlob());
 }

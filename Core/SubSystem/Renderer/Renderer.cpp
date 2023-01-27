@@ -81,3 +81,10 @@ void Renderer::UpdateObjectBuffer()
     *buffer = cpu_object_buffer;
     gpu_object_buffer->Unmap();
 }
+
+void Renderer::UpdateAnimationBuffer()
+{
+    auto buffer = gpu_animation_buffer->Map<ANIMATION_DATA>();
+    *buffer = cpu_animation_buffer;
+    gpu_animation_buffer->Unmap();
+}

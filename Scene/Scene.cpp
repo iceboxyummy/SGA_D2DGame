@@ -7,11 +7,24 @@
 #include "Scene/Component/MoveScriptComponent.h"
 #include "Scene/Component/AiScriptComponent.h"
 #include "Scene/Component/TargetTraceComponent.h"
+#include "Scene/Component/AnimatorComponent.h"
 
 Scene::Scene(Context* const context)
 	:context(context)
 {
 	renderer = context->GetSubsystem<Renderer>();
+
+	// ===============================================
+	// [Animation]
+	// ===============================================
+	std::shared_ptr<Animation> idle_animation = std::make_shared<Animation>(context);
+
+	idle_animation -> AddKeyframe(D3DXVECTOR2(0.0f, 0.0f),  D3DXVECTOR2(30.0f, 38.0f), 200);
+	idle_animation -> AddKeyframe(D3DXVECTOR2(35.0f, 0.0f), D3DXVECTOR2(30.0f, 38.0f), 200);
+	idle_animation -> AddKeyframe(D3DXVECTOR2(70.0f, 0.0f), D3DXVECTOR2(30.0f, 38.0f), 200);
+	idle_animation->SetRepeatType(RepeatType::Loop);
+	idle_animation->SetSpriteTextureSize(D3DXVECTOR2(400.0f, 600.0f));
+	idle_animation->SetSpriteTexture("Assets/Texture/metalslug.png");
 
 	// ===============================================
 	// [Actor]
@@ -26,6 +39,11 @@ Scene::Scene(Context* const context)
 	std::shared_ptr<Actor> player = CreateActor();
 	player->AddComponent<MeshRendererComponent>();
 	player->AddComponent<MoveScriptComponent>();
+
+	auto animator = player->AddComponent<AnimatorComponent>();
+	animator->AddAnimation("Idle", idle_animation);
+	animator->SetAnimationMode(AnimationMode::Play);
+	animator->SetCurrentAnimation("Idle");
 
 	player->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(100.0f, 100.0f, 1.0f));
 	player->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(100.0f, 100.0f, 1.0f));

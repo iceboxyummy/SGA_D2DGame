@@ -1,6 +1,12 @@
 #include "stdafx.h"
 #include "AnimatorComponent.h"
 
+AnimatorComponent::AnimatorComponent(Context* const context, Actor* const actor, TransformComponent* const transform)
+	: IComponent(context, actor, transform)
+{
+	timer = context->GetSubsystem<Timer>();
+}
+
 void AnimatorComponent::Initialize()
 {
 }
@@ -9,7 +15,7 @@ void AnimatorComponent::Update()
 {
 	if (current_animation.expired() == true || IsPlaying() == false) return;
 
-	frame_counter;
+	frame_counter += timer->GetDeltaTimeMS();
 
 	if (frame_counter > GetCurrentKeyframe()->time)
 	{
@@ -30,6 +36,7 @@ void AnimatorComponent::Update()
 		case RepeatType::Loop:
 		{
 			current_frame_number %= current_animation.lock()->GetKeyframeCount();
+
 			break;
 		}
 		}

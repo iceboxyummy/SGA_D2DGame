@@ -8,7 +8,8 @@ enum class ComponentType : uint
 	MeshRenderer,
 	MoveScript,
 	AiScript,
-	TargetTrace
+	TargetTrace,
+	Animator
 };
 
 class IComponent
