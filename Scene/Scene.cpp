@@ -19,12 +19,14 @@ Scene::Scene(Context* const context)
 	// ===============================================
 	std::shared_ptr<Animation> idle_animation = std::make_shared<Animation>(context);
 
-	idle_animation -> AddKeyframe(D3DXVECTOR2(0.0f, 0.0f),  D3DXVECTOR2(30.0f, 38.0f), 200);
-	idle_animation -> AddKeyframe(D3DXVECTOR2(35.0f, 0.0f), D3DXVECTOR2(30.0f, 38.0f), 200);
-	idle_animation -> AddKeyframe(D3DXVECTOR2(70.0f, 0.0f), D3DXVECTOR2(30.0f, 38.0f), 200);
+	idle_animation->AddKeyframe(D3DXVECTOR2(4.0f, 1.0f),  D3DXVECTOR2(30.0f, 40.0f), 200);
+	idle_animation->AddKeyframe(D3DXVECTOR2(34.0f, 1.0f), D3DXVECTOR2(30.0f, 40.0f), 200);
+	idle_animation->AddKeyframe(D3DXVECTOR2(64.0f, 1.0f), D3DXVECTOR2(30.0f, 40.0f), 200);
 	idle_animation->SetRepeatType(RepeatType::Loop);
-	idle_animation->SetSpriteTextureSize(D3DXVECTOR2(400.0f, 600.0f));
 	idle_animation->SetSpriteTexture("Assets/Texture/metalslug.png");
+	idle_animation->SetSpriteTextureSize(D3DXVECTOR2(400.0f, 600.0f));
+	idle_animation->SetAnimationName("Idle");
+	idle_animation->SaveFile("Assets/Animation/Idle.xml");
 
 	// ===============================================
 	// [Actor]
@@ -45,7 +47,7 @@ Scene::Scene(Context* const context)
 	animator->SetAnimationMode(AnimationMode::Play);
 	animator->SetCurrentAnimation("Idle");
 
-	player->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(100.0f, 100.0f, 1.0f));
+	player->GetComponent<TransformComponent>()->SetScale(D3DXVECTOR3(60.0f, 80.0f, 1.0f));
 	player->GetComponent<TransformComponent>()->SetPosition(D3DXVECTOR3(100.0f, 100.0f, 1.0f));
 
 	// ∏ÛΩ∫≈Õ

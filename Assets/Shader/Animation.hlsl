@@ -26,11 +26,15 @@ cbuffer AnimationBuffer : register(b2)
     float2 sprite_offset;
     float2 sprite_size;
     float2 texture_size;
+    float is_animated;
 }
 
 PixelInput VS(VertexInput input)
 {
-	PixelInput output;
+    PixelInput output;
+	
+	//output.position = float4(input.position.xy * sprite_size, 0.0f, 1.0f);
+    //output.position = mul(output.position, world);
 
 	output.position = mul(input.position, world);
 	output.position = mul(output.position, view);
@@ -49,5 +53,8 @@ SamplerState samp : register(s0);
 
 float4 PS(PixelInput input) : SV_Target
 {
-	return source_texture.Sample(samp, input.uv);
+	if(is_animated==1.0f)
+        return source_texture.Sample(samp, input.uv);
+	else
+        return float4(1, 0, 0, 1);
 }

@@ -42,6 +42,7 @@
     <ClInclude Include="Core\SubSystem\Renderer\Renderer_Types.h" />
     <ClInclude Include="Resource\Animation.h" />
     <ClInclude Include="Scene\Component\AnimatorComponent.h" />
+    <ClInclude Include="Utility\Xml.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -79,5 +80,6 @@
     <ClCompile Include="Core\SubSystem\Renderer\Renderer_Resources.cpp" />
     <ClCompile Include="Resource\Animation.cpp" />
     <ClCompile Include="Scene\Component\AnimatorComponent.cpp" />
+    <ClCompile Include="Utility\Xml.cpp" />
   </ItemGroup>
 </Project>

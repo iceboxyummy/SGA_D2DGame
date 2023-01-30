@@ -46,18 +46,25 @@ void Renderer::PassMain()
 			{
 				auto current_keyframe = animator->GetCurrentKeyframe();
 				cpu_animation_buffer.sprite_offset = current_keyframe->offset;
-				cpu_animation_buffer.sprite_size = current_keyframe->size;
-				cpu_animation_buffer.texture_size = animator->GetCurrentAnimation()->GetSpriteTextureSize();
+				cpu_animation_buffer.sprite_size   = current_keyframe->size;
+				cpu_animation_buffer.texture_size  = animator->GetCurrentAnimation()->GetSpriteTextureSize();
+				cpu_animation_buffer.is_animated   = 1.0f;
 				UpdateAnimationBuffer();
 
-				pipeline->SetConstantBuffer(2, ShaderScope_VS, gpu_animation_buffer.get());
+				pipeline->SetConstantBuffer(2, ShaderScope_VS | ShaderScope_PS, gpu_animation_buffer.get());
 				pipeline->SetShaderResource(0, ShaderScope_PS, animator->GetCurrentAnimation()->GetSpriteTexture().get());
 			}
-			/*else
+			else
 			{
-				pipeline->SetConstantBuffer(2, ShaderScope_VS, nullptr);
-				pipeline->SetShaderResource(0, ShaderScope_PS, nullptr);
-			}*/
+				cpu_animation_buffer.sprite_offset = D3DXVECTOR2(0, 0);
+				cpu_animation_buffer.sprite_size   = D3DXVECTOR2(1, 1);
+				cpu_animation_buffer.texture_size  = D3DXVECTOR2(1, 1);
+				cpu_animation_buffer.is_animated   = 0.0f;
+				UpdateAnimationBuffer();
+
+				pipeline->SetConstantBuffer_nullptr(2, ShaderScope_VS | ShaderScope_PS);
+				pipeline->SetShaderResource_nullptr(0, ShaderScope_PS);
+			}
 
 			pipeline->DrawIndexed
 			(

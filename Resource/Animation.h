@@ -18,11 +18,18 @@ struct Keyframe final
 	D3DXVECTOR2 size{ 0.0f, 0.0f };
 	double time{ 0.0 };
 };
+
 class Animation
 {
 public:
 	Animation(class Context* const context);
 	~Animation();
+
+	bool SaveFile(const std::string& path);
+	bool LoadFromFile(const std::string& path);
+
+	const std::string& GetAnimationName() const { return animation_name; }
+	void SetAnimationName(const std::string& name) { this->animation_name = name; }
 
 	const RepeatType& GetRepeatType() const { return repeat_type; }
 	void SetRepeatType(const RepeatType& repeat_type) { this->repeat_type = repeat_type; }
@@ -47,6 +54,7 @@ public:
 private:
 	class Context* context = nullptr;
 	RepeatType repeat_type = RepeatType::Loop;
+	std::string animation_name = "";
 
 	std::shared_ptr<class D3D11_Texture> sprite_texture;
 	D3DXVECTOR2 sprite_texture_size = D3DXVECTOR2(1.0f, 1.0f);

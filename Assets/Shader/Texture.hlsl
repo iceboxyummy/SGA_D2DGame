@@ -40,7 +40,6 @@ SamplerState samp : register(s0);
 
 float4 PS(PixelInput input) : SV_Target
 {
-
 	// clip() : 인자로 받은 데이터가 0보다 작다면 해당 픽셀을 폐기한다.
 	//clip(color.a - 0.9f);
 

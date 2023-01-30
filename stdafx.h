@@ -48,6 +48,7 @@ using uint = unsigned int;
 // Utility
 #include"Utility/Geometry_Generator.h"
 #include"Utility/GUID_Generator.h"
+#include"Utility/Xml.h"
 
 //Framework
 #include"Core/Settings.h"

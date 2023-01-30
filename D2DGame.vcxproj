@@ -185,6 +185,7 @@
     <ClInclude Include="Core\D3D11\Vertex\D3D11_Geometry.h" />
     <ClInclude Include="Core\D3D11\Vertex\D3D11_Geometry.inl" />
     <ClInclude Include="Core\Window.h" />
+    <ClInclude Include="Utility\Xml.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Scene\Component\AnimatorComponent.cpp" />
@@ -224,6 +225,9 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Core\D3D11\Vertex\D3D11_Vertex.cpp" />
+    <ClCompile Include="Utility\Xml.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

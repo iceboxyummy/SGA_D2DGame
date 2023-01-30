@@ -19,5 +19,6 @@ struct ANIMATION_DATA
 	D3DXVECTOR2 sprite_offset;
 	D3DXVECTOR2 sprite_size;
 	D3DXVECTOR2 texture_size;
-	float padding[2];
+	float is_animated;
+	float padding;
 };
