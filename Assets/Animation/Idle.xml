@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Animation Name="Idle" Type="1" TextureSizeX="400" TextureSizeY="600">
-    <Keyframe OffsetX="4" OffsetY="1" SizeY="40" Time="200"/>
-    <Keyframe OffsetX="34" OffsetY="1" SizeY="40" Time="200"/>
-    <Keyframe OffsetX="64" OffsetY="1" SizeY="40" Time="200"/>
+<Animation Name="Idle" Type="1" TexturePath="Assets/Texture/metalslug.png" TextureSizeX="400" TextureSizeY="600">
+    <Keyframe OffsetX="4" OffsetY="1" SizeX="30" SizeY="40" Time="200"/>
+    <Keyframe OffsetX="34" OffsetY="1" SizeX="30" SizeY="40" Time="200"/>
+    <Keyframe OffsetX="64" OffsetY="1" SizeX="30" SizeY="40" Time="200"/>
 </Animation>

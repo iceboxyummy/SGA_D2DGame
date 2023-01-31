@@ -86,6 +86,17 @@ void AnimatorComponent::AddAnimation(const std::string& animation_name, const st
 	animations[animation_name] = animation;
 }
 
+void AnimatorComponent::AddAnimation(const std::string& path)
+{
+	auto animation = std::make_shared<Animation>(context);
+	if (animation->LoadFromFile(path) == false)
+	{
+		assert(false); 
+		return;
+	}
+	AddAnimation(animation->GetResourceName(), animation);
+}
+
 void AnimatorComponent::Play()
 {
 	animation_mode = AnimationMode::Play;

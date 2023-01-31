@@ -1,4 +1,5 @@
 #pragma once
+#include"IResource.h"
 
 enum class RepeatType : uint
 {
@@ -19,17 +20,14 @@ struct Keyframe final
 	double time{ 0.0 };
 };
 
-class Animation
+class Animation : public IResource
 {
 public:
 	Animation(class Context* const context);
 	~Animation();
 
-	bool SaveFile(const std::string& path);
-	bool LoadFromFile(const std::string& path);
-
-	const std::string& GetAnimationName() const { return animation_name; }
-	void SetAnimationName(const std::string& name) { this->animation_name = name; }
+	virtual bool SaveToFile(const std::string& path) override;
+	virtual bool LoadFromFile(const std::string& path) override;
 
 	const RepeatType& GetRepeatType() const { return repeat_type; }
 	void SetRepeatType(const RepeatType& repeat_type) { this->repeat_type = repeat_type; }
@@ -42,6 +40,9 @@ public:
 
 	void SetSpriteTexture(const std::string& path);
 
+	const std::string& GetSpriteTexturePath() const { return sprite_texture_path; }
+	void SetSpriteTexturePath(const std::string& path) { this->sprite_texture_path = path; }
+
 	const std::vector<Keyframe>& GetKeyframes() const { return keyframes; }
 	void SetKeyframes(const std::vector<Keyframe>& keyframes) { this->keyframes = keyframes; }
 
@@ -52,12 +53,11 @@ public:
 	const uint GetKeyframeCount() const { return keyframes.size(); }
 
 private:
-	class Context* context = nullptr;
 	RepeatType repeat_type = RepeatType::Loop;
-	std::string animation_name = "";
 
 	std::shared_ptr<class D3D11_Texture> sprite_texture;
 	D3DXVECTOR2 sprite_texture_size = D3DXVECTOR2(1.0f, 1.0f);
+	std::string sprite_texture_path = "";
 
 	std::vector<Keyframe> keyframes;
 };

@@ -17,16 +17,16 @@ Scene::Scene(Context* const context)
 	// ===============================================
 	// [Animation]
 	// ===============================================
-	std::shared_ptr<Animation> idle_animation = std::make_shared<Animation>(context);
+	//std::shared_ptr<Animation> idle_animation = std::make_shared<Animation>(context);
 
-	idle_animation->AddKeyframe(D3DXVECTOR2(4.0f, 1.0f),  D3DXVECTOR2(30.0f, 40.0f), 200);
-	idle_animation->AddKeyframe(D3DXVECTOR2(34.0f, 1.0f), D3DXVECTOR2(30.0f, 40.0f), 200);
-	idle_animation->AddKeyframe(D3DXVECTOR2(64.0f, 1.0f), D3DXVECTOR2(30.0f, 40.0f), 200);
-	idle_animation->SetRepeatType(RepeatType::Loop);
-	idle_animation->SetSpriteTexture("Assets/Texture/metalslug.png");
-	idle_animation->SetSpriteTextureSize(D3DXVECTOR2(400.0f, 600.0f));
-	idle_animation->SetAnimationName("Idle");
-	idle_animation->SaveFile("Assets/Animation/Idle.xml");
+	//idle_animation->AddKeyframe(D3DXVECTOR2(4.0f, 1.0f),  D3DXVECTOR2(30.0f, 40.0f), 200);
+	//idle_animation->AddKeyframe(D3DXVECTOR2(34.0f, 1.0f), D3DXVECTOR2(30.0f, 40.0f), 200);
+	//idle_animation->AddKeyframe(D3DXVECTOR2(64.0f, 1.0f), D3DXVECTOR2(30.0f, 40.0f), 200);
+	//idle_animation->SetRepeatType(RepeatType::Loop);
+	//idle_animation->SetSpriteTexture("Assets/Texture/metalslug.png");
+	//idle_animation->SetSpriteTextureSize(D3DXVECTOR2(400.0f, 600.0f));
+	//idle_animation->SetResourceName("Idle");
+	//idle_animation->SaveToFile("Assets/Animation/Idle.xml");
 
 	// ===============================================
 	// [Actor]
@@ -43,7 +43,7 @@ Scene::Scene(Context* const context)
 	player->AddComponent<MoveScriptComponent>();
 
 	auto animator = player->AddComponent<AnimatorComponent>();
-	animator->AddAnimation("Idle", idle_animation);
+	animator->AddAnimation("Assets/Animation/Idle.xml");
 	animator->SetAnimationMode(AnimationMode::Play);
 	animator->SetCurrentAnimation("Idle");
 
