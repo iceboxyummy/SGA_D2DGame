@@ -63,6 +63,7 @@ using uint = unsigned int;
 #include"Core/SubSystem/SceneManager.h"
 #include"Core/SubSystem/Renderer/Renderer.h"
 #include"Core/SubSystem/Timer.h"
+#include"Core/SubSystem/ResourceManager.h"
 
 #include"Core/D3D11/Vertex/D3D11_Vertex.h"
 #include"Core/D3D11/Vertex/D3D11_Geometry.h"

@@ -11,6 +11,7 @@ Engine::Engine()
 	context->RegisterSubsystem<SceneManager>();
 
 	context->RegisterSubsystem<Renderer>();
+	context->RegisterSubsystem<ResourceManager>();
 
 	context->InitializeSubSystems();
 }
