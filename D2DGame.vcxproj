@@ -145,6 +145,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Core\SubSystem\ResourceManager.h" />
+    <ClInclude Include="Core\SubSystem\InputManager.h" />
     <ClInclude Include="Resource\IResource.h" />
     <ClInclude Include="Scene\Component\AnimatorComponent.h" />
     <ClInclude Include="Resource\Animation.h" />
@@ -191,6 +192,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Core\SubSystem\ResourceManager.cpp" />
+    <ClCompile Include="Core\SubSystem\InputManager.cpp" />
     <ClCompile Include="Resource\IResource.cpp" />
     <ClCompile Include="Scene\Component\AnimatorComponent.cpp" />
     <ClCompile Include="Resource\Animation.cpp" />

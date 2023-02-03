@@ -45,6 +45,7 @@
     <ClInclude Include="Utility\Xml.h" />
     <ClInclude Include="Core\SubSystem\ResourceManager.h" />
     <ClInclude Include="Resource\IResource.h" />
+    <ClInclude Include="Core\SubSystem\InputManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -85,5 +86,6 @@
     <ClCompile Include="Utility\Xml.cpp" />
     <ClCompile Include="Core\SubSystem\ResourceManager.cpp" />
     <ClCompile Include="Resource\IResource.cpp" />
+    <ClCompile Include="Core\SubSystem\InputManager.cpp" />
   </ItemGroup>
 </Project>

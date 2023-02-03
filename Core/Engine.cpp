@@ -6,6 +6,7 @@ Engine::Engine()
 	context = new Context();
 
 	context->RegisterSubsystem<Timer>();
+	context->RegisterSubsystem<InputManager>();
 
 	context->RegisterSubsystem<Graphics>();
 	context->RegisterSubsystem<SceneManager>();

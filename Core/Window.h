@@ -1,7 +1,8 @@
-#pragma once
 // Windows.h
-#include"stdafx.h"
 
+#pragma once
+
+#include"stdafx.h"
 
 namespace Window
 {
@@ -30,7 +31,6 @@ namespace Window
 			// 위에서 원하는 내용을 처리하고, 남은 것을 처리해주는 기본 값
 			return DefWindowProc(handle, message, wParam, lParam);
 		}
-
 		return 0;
 	}
 
@@ -72,6 +72,7 @@ namespace Window
 			hInstance,
 			nullptr
 		);
+		global_instance = hInstance;
 
 		// 생성 체크 
 		assert(global_handle != nullptr);

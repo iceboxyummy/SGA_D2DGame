@@ -1,5 +1,6 @@
-#pragma once
 // Settings.h
+
+#pragma once
 
 #include"stdafx.h"
 
@@ -21,6 +22,9 @@ public:
 	const float& GetHeight() { return height; }
 	void SetHeight(const float& height) { this->height = height; }
 
+	HINSTANCE GetWindowInstance() { return instance; }
+	void SetWindowInstance(HINSTANCE instance) { this->instance = instance; }
+
 private:
 	Settings() = default;
 	~Settings() = default;
@@ -30,7 +34,7 @@ private:
 
 private:
 	HWND handle = nullptr;
+	HINSTANCE instance = nullptr;
 	float width = 0.0f;
 	float height = 0.0f;
-
 };

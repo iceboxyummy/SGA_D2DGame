@@ -3,11 +3,15 @@
 
 #define NOMINMAX
 
+#define DIRECTINPUT_VERSION 0x0800
+
 #ifdef _DEBUG
 
 #pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
 
 #endif // _DEBUG
+
+#pragma warning(disable : 4506)
 
 //STD
 #include<Windows.h>
@@ -29,12 +33,15 @@
 #include<d3d11.h>
 #include<D3DX10math.h>
 #include<D3DX11async.h>
+#include<dinput.h>
 
 #pragma comment(lib, "dxgi.lib")
 #pragma comment(lib, "d3d11.lib")
 #pragma comment(lib, "d3dx11.lib")
 #pragma comment(lib, "d3dx10.lib")
 #pragma comment(lib, "d3dcompiler.lib")
+#pragma comment(lib, "dinput8.lib")
+#pragma comment(lib, "dxguid.lib")
 
 using uint = unsigned int;
 
@@ -64,6 +71,7 @@ using uint = unsigned int;
 #include"Core/SubSystem/Renderer/Renderer.h"
 #include"Core/SubSystem/Timer.h"
 #include"Core/SubSystem/ResourceManager.h"
+#include"Core/SubSystem/InputManager.h"
 
 #include"Core/D3D11/Vertex/D3D11_Vertex.h"
 #include"Core/D3D11/Vertex/D3D11_Geometry.h"

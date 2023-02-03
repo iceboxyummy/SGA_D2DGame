@@ -74,7 +74,7 @@ inline const std::shared_ptr<T> ResourceManager::Load(const std::string& path)
 	auto last_index = path.find_last_of("\\/");
 	auto file_name = path.substr(last_index + 1, path.length());
 
-	last_index = file_namem.find_last_of('.');
+	last_index = file_name.find_last_of('.');
 	auto resource_name = file_name.substr(0, last_index);
 
 	if (HasResource(resource_name, IResource::DeduceResourceType<T>()))
@@ -99,9 +99,9 @@ inline const std::shared_ptr<T> ResourceManager::GetResourceFromName(const std::
 {
 	static_assert(std::is_base_of<IResource, T>::value, "Providedtype does not implement IResource");
 
-	for (const auto& resource_groups[IResource::DeduceResourceType<T>()])
+	for (const auto& resource : resource_groups[IResource::DeduceResourceType<T>()])
 	{
-		if (resource->GetResourceName() = name)
+		if (resource->GetResourceName() == name)
 			return std::static_pointer_cast<T>(resource);
 	}
 	return nullptr;
@@ -112,9 +112,9 @@ inline const std::shared_ptr<T> ResourceManager::GetResourceFromPath(const std::
 {
 	static_assert(std::is_base_of<IResource, T>::value, "Providedtype does not implement IResource");
 
-	for (const auto& resource_groups[IResource::DeduceResourceType<T>()])
+	for (const auto& resource : resource_groups[IResource::DeduceResourceType<T>()])
 	{
-		if (resource->GetResourcePath() = path)
+		if (resource->GetResourcePath() == path)
 			return std::static_pointer_cast<T>(resource);
 	}
 	return nullptr;

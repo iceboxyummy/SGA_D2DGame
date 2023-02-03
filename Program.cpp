@@ -18,6 +18,7 @@ int APIENTRY WinMain
 	Window::Show();
 
 	Settings::Get().SetWindowHandle(Window::global_handle);
+	Settings::Get().SetWindowInstance(Window::global_instance);
 	Settings::Get().SetWidth(static_cast<float>(Window::GetWidth()));
 	Settings::Get().SetHeight(static_cast<float>(Window::GetHeight()));
 
