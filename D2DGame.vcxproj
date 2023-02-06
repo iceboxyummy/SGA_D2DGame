@@ -188,6 +188,14 @@
     <ClInclude Include="Core\D3D11\Vertex\D3D11_Geometry.h" />
     <ClInclude Include="Core\D3D11\Vertex\D3D11_Geometry.inl" />
     <ClInclude Include="Core\Window.h" />
+    <ClInclude Include="Utility\ImGui\imconfig.h" />
+    <ClInclude Include="Utility\ImGui\imgui.h" />
+    <ClInclude Include="Utility\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="Utility\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="Utility\ImGui\imgui_internal.h" />
+    <ClInclude Include="Utility\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="Utility\ImGui\imstb_textedit.h" />
+    <ClInclude Include="Utility\ImGui\imstb_truetype.h" />
     <ClInclude Include="Utility\Xml.h" />
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +239,27 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Core\D3D11\Vertex\D3D11_Vertex.cpp" />
+    <ClCompile Include="Utility\ImGui\imgui.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utility\ImGui\imgui_demo.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utility\ImGui\imgui_draw.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utility\ImGui\imgui_impl_dx11.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utility\ImGui\imgui_impl_win32.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utility\ImGui\imgui_tables.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="Utility\ImGui\imgui_widgets.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="Utility\Xml.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>

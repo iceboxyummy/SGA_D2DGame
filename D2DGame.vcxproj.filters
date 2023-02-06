@@ -46,6 +46,14 @@
     <ClInclude Include="Core\SubSystem\ResourceManager.h" />
     <ClInclude Include="Resource\IResource.h" />
     <ClInclude Include="Core\SubSystem\InputManager.h" />
+    <ClInclude Include="Utility\ImGui\imconfig.h" />
+    <ClInclude Include="Utility\ImGui\imgui.h" />
+    <ClInclude Include="Utility\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="Utility\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="Utility\ImGui\imgui_internal.h" />
+    <ClInclude Include="Utility\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="Utility\ImGui\imstb_textedit.h" />
+    <ClInclude Include="Utility\ImGui\imstb_truetype.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -87,5 +95,12 @@
     <ClCompile Include="Core\SubSystem\ResourceManager.cpp" />
     <ClCompile Include="Resource\IResource.cpp" />
     <ClCompile Include="Core\SubSystem\InputManager.cpp" />
+    <ClCompile Include="Utility\ImGui\imgui.cpp" />
+    <ClCompile Include="Utility\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="Utility\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="Utility\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="Utility\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Utility\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="Utility\ImGui\imgui_widgets.cpp" />
   </ItemGroup>
 </Project>

@@ -4,6 +4,9 @@
 
 #include"stdafx.h"
 
+// Forward declare message handler from imgui_impl_win32.cpp
+extern IMGUI_IMPL_API LRESULT ImGui_ImplWin32_WndProcHandler(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
+
 namespace Window
 {
 	static HINSTANCE global_instance; // 인스턴스 정보 
@@ -20,6 +23,9 @@ namespace Window
 										LPARAM lParam
 									)
 	{
+		if (ImGui_ImplWin32_WndProcHandler(handle, message, wParam, lParam))
+			return true;
+
 		switch (message) // 메세지 내용 switch
 		{
 		case WM_CLOSE:	// 윈도우가 닫혔을 때

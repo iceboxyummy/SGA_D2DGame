@@ -17,8 +17,10 @@ void Renderer::PassMain()
 
 	for(const auto& actor : actors)
 	{
+		if (actor->IsActive() == false)continue;
+
 		auto renderable = actor->GetComponent<MeshRendererComponent>();
-		if (renderable == nullptr) continue;
+		if (renderable == nullptr || renderable->IsEnabled() == false) continue;
 
 		auto transform = actor->GetTransform_Raw();
 		if (transform == nullptr) continue;
@@ -72,6 +74,13 @@ void Renderer::PassMain()
 				renderable->GetIndexBuffer()->GetOffset(),
 				renderable->GetVertexBuffer()->GetOffset()
 			);
+			pipeline->End();
 		}
 	}
+	bool show_demo_window = true;
+	ImGui::ShowDemoWindow(&show_demo_window);
+
+	// Rendering
+	ImGui::Render();
+	ImGui_ImplDX11_RenderDrawData(ImGui::GetDrawData());
 }
