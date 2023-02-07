@@ -27,6 +27,7 @@
 #include<memory>
 #include<typeinfo>
 #include<mutex>
+#include<fstream>
 
 //DX
 #include<d3dcompiler.h>
@@ -57,10 +58,10 @@ using uint = unsigned int;
 #include"Utility/Geometry_Generator.h"
 #include"Utility/GUID_Generator.h"
 #include"Utility/Xml.h"
-
 #include"Utility/ImGui/imgui.h"
 #include"Utility/ImGui/imgui_impl_win32.h"
 #include"Utility/ImGui/imgui_impl_dx11.h"
+#include"Utility/Logsystem.h"
 
 //Framework
 #include"Core/Settings.h"

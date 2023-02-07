@@ -196,6 +196,7 @@
     <ClInclude Include="Utility\ImGui\imstb_rectpack.h" />
     <ClInclude Include="Utility\ImGui\imstb_textedit.h" />
     <ClInclude Include="Utility\ImGui\imstb_truetype.h" />
+    <ClInclude Include="Utility\Logsystem.h" />
     <ClInclude Include="Utility\Xml.h" />
   </ItemGroup>
   <ItemGroup>
@@ -260,6 +261,7 @@
     <ClCompile Include="Utility\ImGui\imgui_widgets.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Utility\Logsystem.cpp" />
     <ClCompile Include="Utility\Xml.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>

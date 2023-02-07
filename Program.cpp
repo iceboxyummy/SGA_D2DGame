@@ -11,7 +11,7 @@ int APIENTRY WinMain
 	int nCmdShow
 )
 {
-	std::cout << GUID_Generator::Generate();
+	//std::cout << GUID_Generator::Generate();
 
 	// »ý¼º
 	Window::Create(hInstance, 1000, 1000);

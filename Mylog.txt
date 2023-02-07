@@ -1,0 +1,6 @@
+CALLER	: Engine::Engine(C:\Users\jysy6\source\repos\iceboxyummy\SGA_D2DGame\Core\Engine.cpp,20)
+INFO	시스템 세팅 성공
+
+CALLER	: Engine::Engine(C:\Users\jysy6\source\repos\iceboxyummy\SGA_D2DGame\Core\Engine.cpp,25)
+WARNING	플레이어가 비정상적인 위치에 도달함 :10 20 30
+

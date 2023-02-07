@@ -54,6 +54,7 @@
     <ClInclude Include="Utility\ImGui\imstb_rectpack.h" />
     <ClInclude Include="Utility\ImGui\imstb_textedit.h" />
     <ClInclude Include="Utility\ImGui\imstb_truetype.h" />
+    <ClInclude Include="Utility\Logsystem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp" />
@@ -102,5 +103,6 @@
     <ClCompile Include="Utility\ImGui\imgui_impl_win32.cpp" />
     <ClCompile Include="Utility\ImGui\imgui_tables.cpp" />
     <ClCompile Include="Utility\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Utility\Logsystem.cpp" />
   </ItemGroup>
 </Project>

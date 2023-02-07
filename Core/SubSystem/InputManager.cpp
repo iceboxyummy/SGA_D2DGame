@@ -83,6 +83,8 @@ bool InputManager::Initialize()
 	if (FAILED(hr)) { assert(false); return false; }
 
 	while (mouse_device->Acquire() == DIERR_INPUTLOST);
+
+	return true;
 }
 
 void InputManager::Update()
